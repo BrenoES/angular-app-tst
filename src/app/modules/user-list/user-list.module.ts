@@ -10,14 +10,12 @@ import { UserListRoutingModule } from './user-list-routing.module';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserListComponent } from './user-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './user-list.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
     UserListRoutingModule,
     MatListModule,
