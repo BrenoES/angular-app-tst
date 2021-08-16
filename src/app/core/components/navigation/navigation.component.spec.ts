@@ -1,7 +1,8 @@
-/* tslint:disable:no-unused-variable */
+import { CommonModule } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { NavigationComponent } from './navigation.component';
 
@@ -12,6 +13,7 @@ describe('NavigationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [NavigationComponent],
+      imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],
     }).compileComponents();
   }));
 

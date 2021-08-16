@@ -8,10 +8,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+import { AlbumsService } from './albums.service';
 
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     AlbumsRoutingModule,
     MatListModule,
     MatGridListModule,
@@ -19,6 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatDialogModule,
   ],
+  providers: [AlbumsService],
   declarations: [AlbumsComponent, PhotosComponent],
 })
 export class AlbumsModule {}

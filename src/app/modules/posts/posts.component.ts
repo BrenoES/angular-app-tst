@@ -3,7 +3,7 @@ import { PostsService } from './posts.service';
 import { Posts } from './posts';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { PostsCommentsComponent } from './posts-comments/posts-comments.component';
 
 @Component({

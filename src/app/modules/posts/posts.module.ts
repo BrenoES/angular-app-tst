@@ -7,9 +7,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { PostsCommentsComponent } from './posts-comments/posts-comments.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [CommonModule, PostsRoutingModule, MatListModule, MatIconModule, MatDialogModule],
+  imports: [CommonModule, HttpClientModule, PostsRoutingModule, MatListModule, MatIconModule, MatDialogModule],
   declarations: [PostsComponent, PostsCommentsComponent],
 })
 export class PostsModule {}
