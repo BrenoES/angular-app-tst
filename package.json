@@ -22,7 +22,7 @@
   "scripts": {
     "ng": "ng",
     "prepare": "husky install",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build --base-href ./ ",
     "watch": "ng build --watch --configuration development",
     "prod-test": "npm run final-build && serve -s dist/",
@@ -55,6 +55,8 @@
     "@angular/router": "~12.1.1",
     "@ngx-loading-bar/core": "^5.1.1",
     "@ngx-loading-bar/router": "^5.1.1",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
     "rxjs": "^6.6.6",
     "tslib": "^2.0.0",
     "typed.js": "^2.0.11",
