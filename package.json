@@ -1,11 +1,11 @@
 {
-  "name": "ng-new-app",
+  "name": "angular-app-tst",
   "version": "1.0.8",
   "description": "Angular 12 boilerplate that comes with Material-UI, Tailwind, Purgecss, Jest & Cypress Support, Optimal project structure, Interceptor with already some code, sourcemap analyzer tools, all pre-configured and much more...",
-  "homepage": "https://github.com/sardapv/angular-material-starter-template#readme",
+  "homepage": "https://github.com/BrenoES/angular-app-tst#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sardapv/angular-material-starter-template.git"
+    "url": "git+https://github.com/BrenoES/angular-app-tst.git"
   },
   "keywords": [
     "angular",
@@ -17,7 +17,7 @@
     "code-coverage",
     "light-house"
   ],
-  "author": "Pranav Sarda <sardapranav1@gmail.com>",
+  "author": "Breno Silva <breno.esilva1@outlook.com>",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -95,7 +95,7 @@
     "rimraf": "^3.0.2",
     "serve": "^12.0.0",
     "source-map-explorer": "^2.5.2",
-    "tailwindcss": "^2.1.2",
+    "tailwindcss": "^2.2.7",
     "typescript": "~4.2.3",
     "webpack-bundle-analyzer": "^4.4.1"
   }

@@ -1,0 +1,11 @@
+<div *ngIf="photos$ | async as photos">
+  <p class="p-4">{{ photos.length }} fotos</p>
+  <mat-grid-list [cols]="photoColumns" rowHeight="1:1" (window:resize)="onResize($event)">
+    <mat-grid-tile class="" *ngFor="let photo of photos">
+      <figure class="w-full h-full cursor-pointer" (click)="openPhotoPreview(photo.url)">
+        <img class="w-full h-full" [src]="photo.thumbnailUrl" alt="photo.title" />
+      </figure>
+      <mat-grid-tile-footer>{{ photo.title }}</mat-grid-tile-footer>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+
+@import 'tailwindcss/tailwind';
 @import './shared/global';
-@import './shared//animations';
 @import './shared/animations';
 @import './variables';
 @import './mat-theme/mat_core';

@@ -7,8 +7,12 @@ import { HTTPReqResInterceptor } from '@core/services/http-req-res.interceptor';
 import { environment } from '@env';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +23,9 @@ import { AppComponent } from './app.component';
     CoreModule,
     HttpClientModule,
     LoadingBarRouterModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
   ],
   providers: [
     { provide: 'BASE_URL', useValue: environment.baseurl },

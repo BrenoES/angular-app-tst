@@ -1,0 +1,26 @@
+<div class="h-96" *ngIf="comments$ | async as comments">
+  <div class="flex justify-between p-4">
+    <h1 class="font-bold text-lg">Comentários</h1>
+    <button class="flex items-center" mat-button (click)="close()">
+      <mat-icon class="mat-18">close</mat-icon>
+      <span>fechar</span>
+    </button>
+  </div>
+  <div class="max-h-80 overflow-y-auto">
+    <ul>
+      <li
+        class="m-2 flex px-4 py-4 justify-between bg-white hover:bg-gray-300 dark:bg-gray-600 shadow rounded"
+        *ngFor="let commment of comments"
+      >
+        <mat-icon class="m-4" matListIcon fontSet="material-icons-outlined">comment</mat-icon>
+
+        <div class="w-full">
+          <h1 class="font-bold text-gray-600 text-md" matLine>{{ commment.name }}</h1>
+          <p class="text-gray-400 leading-relaxed" matLine>
+            <span class="font-medium">{{ commment.email }}</span> - {{ commment.body }}
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
