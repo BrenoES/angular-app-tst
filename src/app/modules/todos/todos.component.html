@@ -1,15 +1,13 @@
-<!-- <mat-list
-  ><mat-list-item *ngFor="let todo of todos$ | async">
-    <mat-checkbox [(ngModel)]="todo.completed"> </mat-checkbox>
-    <h3 matLine>{{ todo.title }}</h3>
+<mat-list>
+  <mat-list-item
+    class="m-2 flex px-4 py-4 justify-between bg-white hover:bg-gray-300 dark:bg-gray-600 shadow rounded cursor-pointer"
+    *ngFor="let todo of todos$ | async"
+  >
+    <div class="flex items-center">
+      <mat-icon *ngIf="!todo.completed" class="m-4" matListIcon fontSet="material-icons-outlined">close</mat-icon>
+      <mat-icon *ngIf="todo.completed" class="m-4" matListIcon fontSet="material-icons-outlined">done</mat-icon>
+      <h1 class="font-medium">{{ todo.title }}</h1>
+    </div>
     <mat-divider></mat-divider>
   </mat-list-item>
-</mat-list> -->
-
-<mat-selection-list>
-  <mat-list-option *ngFor="let todo of todos$ | async" checkboxPosition="before" [selected]="todo.completed">
-    <div>
-      <p class="font-medium">{{ todo.title }}</p>
-    </div>
-  </mat-list-option>
-</mat-selection-list>
+</mat-list>

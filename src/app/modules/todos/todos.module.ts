@@ -6,9 +6,18 @@ import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, FormsModule, TodosRoutingModule, MatListModule, MatCheckboxModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    FormsModule,
+    TodosRoutingModule,
+    MatListModule,
+    MatIconModule,
+    MatCheckboxModule,
+  ],
   declarations: [TodosComponent],
 })
 export class TodosModule {}

@@ -1,13 +1,17 @@
-<mat-list>
-  <mat-list-item
-    class="m-2 flex px-4 py-4 justify-between bg-white hover:bg-gray-300 dark:bg-gray-600 shadow rounded cursor-pointer"
+<ul>
+  <li
+    class="m-3 flex px-4 py-4 justify-between bg-white hover:bg-gray-300 dark:bg-gray-600 shadow rounded"
     *ngFor="let album of albums$ | async"
-    [routerLink]="['./', album.id]"
   >
-    <div class="flex items-center">
-      <mat-icon class="m-4" matListIcon fontSet="material-icons-outlined">photo_library</mat-icon>
-      <h1 class="font-semibold text-gray-600">{{ album.title }}</h1>
+    <mat-icon class="m-4" matListIcon fontSet="material-icons-outlined">photo_library</mat-icon>
+
+    <div class="w-full">
+      <h1 class="font-semibold text-gray-600 text-md mt-2" matLine>{{ album.title }}</h1>
+      <div class="flex">
+        <a [routerLink]="['./', album.id]" class="font-medium cursor-pointer mt-1 text-xs hover:text-gray-300">
+          visualizar
+        </a>
+      </div>
     </div>
-    <mat-divider></mat-divider>
-  </mat-list-item>
-</mat-list>
+  </li>
+</ul>
