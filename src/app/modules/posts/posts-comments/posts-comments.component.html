@@ -1,7 +1,7 @@
-<div class="h-96" *ngIf="comments$ | async as comments">
+<div data-testid="container-comments" class="h-96" *ngIf="comments$ | async as comments">
   <div class="flex justify-between p-4">
     <h1 class="font-bold text-lg">Comentários</h1>
-    <button class="flex items-center" mat-button (click)="close()">
+    <button data-testid="closeComments" class="flex items-center" mat-button (click)="close()">
       <mat-icon class="mat-18">close</mat-icon>
       <span>fechar</span>
     </button>

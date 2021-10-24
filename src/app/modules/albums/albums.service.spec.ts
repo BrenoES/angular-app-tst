@@ -2,7 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed, inject } from '@angular/core/testing';
 import { AlbumsService } from './albums.service';
 
-describe('Service: Albums', () => {
+describe(AlbumsService.name, () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [AlbumsService],

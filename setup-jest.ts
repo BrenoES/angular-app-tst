@@ -1,4 +1,5 @@
 import 'jest-preset-angular/setup-jest';
+import '@testing-library/jest-dom';
 
 /* global mocks for jsdom */
 const mock = () => {
@@ -14,7 +15,14 @@ const mock = () => {
 Object.defineProperty(window, 'localStorage', { value: mock() });
 Object.defineProperty(window, 'sessionStorage', { value: mock() });
 Object.defineProperty(window, 'getComputedStyle', {
-  value: () => ['-webkit-appearance'],
+  value: () => [
+    '-webkit-appearance',
+    {
+      getPropertyValue: (prop: any) => {
+        return '';
+      },
+    },
+  ],
 });
 
 Object.defineProperty(document.body.style, 'transform', {

@@ -33,6 +33,7 @@
     "final-build": "npm run build && npm run purgecss",
     "test": "ng test",
     "test:coverage": "ng test --coverage",
+    "test:watch": "ng test -o --watch",
     "lint": "ng lint",
     "e2e": "ng run ng-new-app:cypress-open",
     "e2e:ci": "ng run ng-new-app:cypress-run",
@@ -78,6 +79,9 @@
     "@briebug/jest-schematic": "^3.1.0",
     "@cypress/code-coverage": "^3.9.9",
     "@schematics/angular": "^12.0.1",
+    "@testing-library/angular": "^10.11.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/user-event": "^13.5.0",
     "@types/jasmine": "~3.6.0",
     "@types/jest": "26.0.23",
     "@types/node": "^12.11.1",
@@ -102,7 +106,6 @@
     "typescript": "~4.2.3",
     "webpack-bundle-analyzer": "^4.4.1"
   },
-
   "engines": {
     "node": "v12.18.3",
     "npm": "6.14.6"

@@ -1,5 +1,5 @@
 import { AlbumsRoutingModule } from './albums-routing.module';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlbumsComponent } from './albums.component';
 import { MatListModule } from '@angular/material/list';
@@ -22,5 +22,6 @@ import { AlbumsService } from './albums.service';
   ],
   providers: [AlbumsService],
   declarations: [AlbumsComponent, PhotosComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AlbumsModule {}
