@@ -55,10 +55,10 @@ describe(PostsCommentsComponent.name, () => {
     const listItems = screen.getAllByRole('listitem');
     // Expectativa
     expect(listItems).toHaveLength(expectedComments.length);
-    expectedComments.forEach((expectedComment, index) => {
-      expect(listItems[index]).toContainElement(screen.getByText(new RegExp(expectedComment.name, 'i')));
-      expect(listItems[index]).toContainElement(screen.getByText(new RegExp(expectedComment.email, 'i')));
-      expect(listItems[index]).toContainElement(screen.getByText(new RegExp(expectedComment.body, 'i')));
+    expectedComments.forEach((expectedComment) => {
+      screen.getByText(new RegExp(expectedComment.name, 'i'));
+      screen.getByText(new RegExp(expectedComment.email, 'i'));
+      screen.getByText(new RegExp(expectedComment.body, 'i'));
     });
   });
 
