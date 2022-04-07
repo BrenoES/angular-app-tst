@@ -1,21 +1,12 @@
-const express = require('express');
+const nomeApp = process.env.npm_package_name;
 const app = express();
-const path = require('path');
-const fs = require('fs');
 
-const port = process.env.NODE_PORT || 8080;
+app.use(express.static(`${__dirname}/dist/${nomeApp}`));
+app.use(express.static(`${__dirname}/dist`));
 
-const root = path.join(__dirname, 'dist');
-
-app.get('*', function (req, res) {
-  fs.stat(root + req.path, function (err) {
-    if (err) {
-      res.sendFile('index.html', { root });
-    } else {
-      res.sendFile(req.path, { root });
-    }
-  });
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(`${__dirname}/dist/${nomeApp}/index.html`));
+  res.sendFile(path.join(`${__dirname}/dist/index.html`));
 });
 
-app.listen(port);
-console.log('Listening on port ' + port);
+app.listen(process.env.PORT || 8080);
