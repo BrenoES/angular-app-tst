@@ -24,7 +24,8 @@
       "@env": ["src/environments/environment"],
       "@shared/*": ["src/app/shared/*"],
       "@core/*": ["src/app/core/*"],
-      "@features/*": ["src/app/features/*"]
+      "@features/*": ["src/app/features/*"],
+      "@modules/*": ["src/app/modules/*"]
     }
   },
   "angularCompilerOptions": {
@@ -32,5 +33,6 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "exclude": ["node_modules", "**/dist/*", "**/coverage/*"]
 }

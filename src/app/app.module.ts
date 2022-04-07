@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxsModule } from '@ngxs/store';
+import { states } from '@shared/states';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +28,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
+    NgxsModule.forRoot([...states], {
+      developmentMode: !environment.production,
+    }),
   ],
   providers: [
     { provide: 'BASE_URL', useValue: environment.baseurl },

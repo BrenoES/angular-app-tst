@@ -8,7 +8,7 @@ import { Todos } from './todos';
 export class TodosService {
   constructor(private httpClient: HttpClient) {}
 
-  getTodosUser(userId: string) {
+  getTodosByUser(userId: string) {
     return this.httpClient.get<Todos>('todos', { params: { userId } });
   }
 
