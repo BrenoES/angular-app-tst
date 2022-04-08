@@ -22,8 +22,8 @@
   "scripts": {
     "ng": "ng",
     "prepare": "husky install",
-    "start": "ng serve ",
-    "start:local":"node server.js",
+    "start": "node server.js",
+    "start:local":"ng serve",
     "build": "ng build --base-href ./ ",
     "watch": "ng build --watch --configuration development",
     "prod-test": "npm run final-build && serve -s dist/",
