@@ -1,6 +1,7 @@
-const express =  require("express")
+const express = require('express');
 const nomeApp = process.env.npm_package_name;
 const app = express();
+const path = require('path');
 
 app.use(express.static(`${__dirname}/dist/${nomeApp}`));
 app.use(express.static(`${__dirname}/dist`));
