@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxsModule } from '@ngxs/store';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { states } from '@shared/states';
 
 @NgModule({
@@ -30,6 +31,9 @@ import { states } from '@shared/states';
     MatIconModule,
     NgxsModule.forRoot([...states], {
       developmentMode: !environment.production,
+    }),
+    NgxsStoragePluginModule.forRoot({
+      key: 'auth.token',
     }),
   ],
   providers: [

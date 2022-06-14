@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'users' },
-
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  {
+    path: 'login',
+    loadChildren: () => import('./core/components/login/login.module').then((m) => m.LoginModule),
+  },
   {
     path: 'users',
     loadChildren: () => import('./modules/user-list/user-list.module').then((m) => m.UserListModule),
+    canActivate: [AuthGuard],
     // change to before if session resume is not supported in your app
   },
   {
     path: '**',
-    redirectTo: 'users', // or 404 module
+    redirectTo: 'login', // or 404 module
   },
 ];
 

@@ -48,7 +48,7 @@ export class HTTPReqResInterceptor implements HttpInterceptor {
 
   handleError(newRequest: HttpRequest<any>, next: HttpHandler, err: any) {
     if (err instanceof HttpErrorResponse && err.status === 401) {
-      return this.handle401(newRequest, next);
+      // return this.handle401(newRequest, next);
     } else {
       this._broadcaster.broadcast(CONSTANTS.ERROR, {
         error: 'Something went wrong',
@@ -68,45 +68,45 @@ export class HTTPReqResInterceptor implements HttpInterceptor {
     });
   }
 
-  /* Refresh handler referred from https://www.intertech.com/angular-4-tutorial-handling-refresh-token-with-new-httpinterceptor/ */
-  handle401(request: HttpRequest<any>, next: HttpHandler) {
-    if (!this.isalreadyRefreshing) {
-      //  don't want to have multiple refresh request when multiple unauthorized requests
-      this.isalreadyRefreshing = true;
-      // so that new subscribers don't trigger switchmap part and stay in queue till new token received
-      this.tokenSubject.next(null);
-      return this._authservice.refreshToken().pipe(
-        switchMap((newToken: AuthToken) => {
-          if (newToken) {
-            // update token store & publish new token, yay!!
-            this._authservice.storeToken(newToken);
-            this.tokenSubject.next(newToken);
-            return next.handle(this.addToken(request, newToken));
-          }
-          // no new token received | something messed up
-          this._authservice.logout();
-          return throwError('no refresh token found');
-        }),
-        catchError((error) => {
-          this._authservice.logout();
-          return throwError(error);
-        }),
-        finalize(() => (this.isalreadyRefreshing = false))
-      );
-    } else {
-      /* if tab is kept running and this isalreadyRefreshing is still true, 
-      user clicks another menu, req initiated but refresh failed */
-      if (this.isalreadyRefreshing && request.url.includes('refresh')) {
-        this._authservice.logout();
-      }
-      // new token ready subscribe -> every skipped request will be retried with fresh token
-      return this.tokenSubject.pipe(
-        filter((token: AuthToken) => token != null),
-        take(1), // complete the stream
-        switchMap((token: AuthToken) => {
-          return next.handle(this.addToken(request, token));
-        })
-      );
-    }
-  }
+  // /* Refresh handler referred from https://www.intertech.com/angular-4-tutorial-handling-refresh-token-with-new-httpinterceptor/ */
+  // handle401(request: HttpRequest<any>, next: HttpHandler) {
+  //   if (!this.isalreadyRefreshing) {
+  //     //  don't want to have multiple refresh request when multiple unauthorized requests
+  //     this.isalreadyRefreshing = true;
+  //     // so that new subscribers don't trigger switchmap part and stay in queue till new token received
+  //     this.tokenSubject.next(null);
+  //     return this._authservice.refreshToken().pipe(
+  //       switchMap((newToken: AuthToken) => {
+  //         if (newToken) {
+  //           // update token store & publish new token, yay!!
+  //           this._authservice.storeToken(newToken);
+  //           this.tokenSubject.next(newToken);
+  //           return next.handle(this.addToken(request, newToken));
+  //         }
+  //         // no new token received | something messed up
+  //         this._authservice.logout();
+  //         return throwError('no refresh token found');
+  //       }),
+  //       catchError((error) => {
+  //         this._authservice.logout();
+  //         return throwError(error);
+  //       }),
+  //       finalize(() => (this.isalreadyRefreshing = false))
+  //     );
+  //   } else {
+  //     /* if tab is kept running and this isalreadyRefreshing is still true,
+  //     user clicks another menu, req initiated but refresh failed */
+  //     if (this.isalreadyRefreshing && request.url.includes('refresh')) {
+  //       this._authservice.logout();
+  //     }
+  //     // new token ready subscribe -> every skipped request will be retried with fresh token
+  //     return this.tokenSubject.pipe(
+  //       filter((token: AuthToken) => token != null),
+  //       take(1), // complete the stream
+  //       switchMap((token: AuthToken) => {
+  //         return next.handle(this.addToken(request, token));
+  //       })
+  //     );
+  //   }
+  // }
 }
