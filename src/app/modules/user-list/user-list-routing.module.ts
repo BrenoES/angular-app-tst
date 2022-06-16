@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import { UserListComponent } from './user-list.component';
+import { UserListComponent } from './pages/user-list.component';
 
 const routes: Routes = [
   { path: '', component: UserListComponent, pathMatch: 'full' },

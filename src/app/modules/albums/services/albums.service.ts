@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Albums } from './albums';
-import { Photos } from './photos/photos';
+
+import { Albums } from '../interfaces';
+import { Photos } from '../photos/interfaces';
 
 @Injectable({
   providedIn: 'root',

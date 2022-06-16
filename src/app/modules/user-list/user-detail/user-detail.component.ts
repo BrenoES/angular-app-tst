@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UsersService } from '../user-list.service';
-import { User } from '../user';
+import { UsersService } from '../services/user-list.service';
+import { User } from '../interfaces/user';
 import { ActivatedRoute, Router } from '@angular/router';
 
 interface ITabLink {

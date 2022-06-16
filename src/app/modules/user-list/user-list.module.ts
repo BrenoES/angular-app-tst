@@ -1,28 +1,16 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatListModule } from '@angular/material/list';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-
 import { UserListRoutingModule } from './user-list-routing.module';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import { UserListComponent } from './user-list.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UsersService } from './user-list.service';
+import { UserListComponent } from './pages/user-list.component';
+
+import { UsersService } from './services/user-list.service';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    UserListRoutingModule,
-    MatListModule,
-    MatTabsModule,
-    MatInputModule,
-    MatIconModule,
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, UserListRoutingModule, SharedModule],
   providers: [UsersService],
   declarations: [UserListComponent, UserDetailComponent],
 })

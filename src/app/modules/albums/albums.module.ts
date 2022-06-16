@@ -1,25 +1,15 @@
-import { AlbumsRoutingModule } from './albums-routing.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AlbumsComponent } from './albums.component';
-import { MatListModule } from '@angular/material/list';
+
+import { AlbumsComponent } from './pages/albums.component';
+import { AlbumsRoutingModule } from './albums-routing.module';
+import { AlbumsService } from './services/albums.service';
 import { PhotosComponent } from './photos/photos.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDialogModule } from '@angular/material/dialog';
-import { AlbumsService } from './albums.service';
+
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AlbumsRoutingModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatIconModule,
-    MatDialogModule,
-  ],
+  imports: [CommonModule, AlbumsRoutingModule, SharedModule],
   providers: [AlbumsService],
   declarations: [AlbumsComponent, PhotosComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Store } from '@ngxs/store';
 import { Login } from '@shared/states/auth/auth.actions';
-interface ILoginForm {
-  username: string;
-  password: string;
-}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  public loginForm = new FormGroup<ILoginForm>({
+  public loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(5)]),
   });
@@ -21,11 +18,11 @@ export class LoginComponent {
   constructor(private store: Store) {}
 
   get usernameControl() {
-    return this.loginForm.get('username');
+    return this.loginForm.get('username') as FormControl;
   }
 
   get passwordControl() {
-    return this.loginForm.get('password');
+    return this.loginForm.get('password') as FormControl;
   }
 
   login(): void {

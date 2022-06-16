@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Albums } from './albums';
-import { AlbumsService } from './albums.service';
+
+import { Albums } from '../interfaces';
+import { AlbumsService } from '../services/albums.service';
 
 @Component({
   selector: 'app-albums',

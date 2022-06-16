@@ -1,8 +1,8 @@
-import { AuthToken, UserDetail } from '@core/models/auth.model';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { UserDetail } from '@core/models/auth.model';
+import { HttpClient } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
-import { from, of } from 'rxjs';
+import { of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

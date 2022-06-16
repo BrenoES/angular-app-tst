@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AlbumsService } from '../albums.service';
-import { Photos } from './photos';
-import { PhotoComponent } from '../photo/photo.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+
+import { Photos } from './interfaces';
+import { PhotoComponent } from './_components/photo/photo.component';
+import { AlbumsService } from '../services/albums.service';
 
 const breakpoints = {
   md: 768,
@@ -29,9 +30,9 @@ export class PhotosComponent implements OnInit {
   ngOnInit() {
     const { albumId } = this.activatedRoute.snapshot.params;
     this.getPhotos(albumId);
-
     this.photoColumns = this.getPhotoColumns(window.innerWidth);
   }
+
   getPhotos(albumId: string) {
     this.photos$ = this.albumsService.getAlbumsPhotos(albumId);
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from './user-list.service';
-import { Users } from './user';
+import { UsersService } from '../services/user-list.service';
+import { Users } from '../interfaces';
 import { Observable } from 'rxjs/internal/Observable';
 import { combineLatest, of } from 'rxjs';
 import { FormControl } from '@angular/forms';
