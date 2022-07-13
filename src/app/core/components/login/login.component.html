@@ -1,21 +1,38 @@
-<main class="form-signin">
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <h1 class="h3 mb-3 fw-normal">Sign In</h1>
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" formControlName="username" />
-      <label for="floatingInput">Username</label>
-      <div *ngIf="loginForm.invalid && usernameControl?.touched && usernameControl.errors">
-        <span *ngIf="usernameControl.errors['required']">Username is required</span>
-        <span *ngIf="usernameControl.errors['email']">Username must be an email</span>
-      </div>
-    </div>
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingPassword" formControlName="password" />
-      <label for="floatingPassword">Password</label>
-      <div *ngIf="loginForm.invalid && passwordControl?.touched && passwordControl.errors">
-        <span *ngIf="passwordControl.errors['minlength']">Password must have at least 8 characters</span>
-      </div>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="loginForm.invalid">Sign in</button>
-  </form>
-</main>
+<div class="container h-5/6 flex items-start">
+  <main class="form-signin max-w-sm rounded overflow-hidden shadow-lg">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <h3 class="mb-3 text-lg font-bold tracking-tight text-gray-900">Login</h3>
+      <app-input-form
+        type="text"
+        id="floatingInput"
+        name="username"
+        label="Username"
+        formControlName="username"
+      ></app-input-form>
+      <app-input-form
+        type="text"
+        id="floatingPassword"
+        name="password"
+        label="Password"
+        formControlName="password"
+      ></app-input-form>
+      <button
+        class="
+          bg-transparent
+          hover:bg-blue-500
+          text-blue-700
+          font-semibold
+          hover:text-white
+          py-2
+          px-4
+          border border-blue-500
+          hover:border-transparent
+          rounded
+        "
+        type="submit"
+      >
+        Sign in
+      </button>
+    </form>
+  </main>
+</div>

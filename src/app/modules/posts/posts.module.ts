@@ -4,9 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from '@shared/shared.module';
 
-import { PostsComponent } from './posts.component';
-import { PostsRoutingModule } from './posts-routing.module';
-import { PostsCommentsComponent } from './posts-comments/posts-comments.component';
+import { PostsComponent } from '@modules/posts/views';
+import { PostsCommentsComponent } from '@modules/posts/components';
+import { PostsRoutingModule } from '@modules/posts/posts-routing.module';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, PostsRoutingModule, SharedModule],

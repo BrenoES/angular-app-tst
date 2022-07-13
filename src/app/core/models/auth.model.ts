@@ -3,7 +3,7 @@ export class AuthToken {
   refresh_token!: string;
 }
 
-export class UserDetail {
+export class UserLogin {
   username!: string;
   password!: string;
 }

@@ -1,7 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 import { PostsService } from './posts.service';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../../environments/environment.prod';
 
 describe(`Service: ${PostsService.name}`, () => {
   beforeEach(() => {

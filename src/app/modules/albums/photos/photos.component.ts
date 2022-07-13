@@ -3,14 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 
-import { Photos } from './interfaces';
-import { PhotoComponent } from './_components/photo/photo.component';
-import { AlbumsService } from '../services/albums.service';
+import { AlbumsService } from '@modules/albums/services';
+import { getColumns } from '@core/helpers';
 
-const breakpoints = {
-  md: 768,
-  lg: 992,
-};
+import { Photos } from './interfaces';
+import { PhotoComponent } from './_components';
 
 @Component({
   selector: 'app-photos',
@@ -30,7 +27,7 @@ export class PhotosComponent implements OnInit {
   ngOnInit() {
     const { albumId } = this.activatedRoute.snapshot.params;
     this.getPhotos(albumId);
-    this.photoColumns = this.getPhotoColumns(window.innerWidth);
+    this.getPhotoColumns(window.innerWidth);
   }
 
   getPhotos(albumId: string) {
@@ -44,18 +41,10 @@ export class PhotosComponent implements OnInit {
   }
 
   onResize(event: any) {
-    this.photoColumns = this.getPhotoColumns(event.target.innerWidth);
+    this.getPhotoColumns(event.target.innerWidth);
   }
 
   getPhotoColumns(width: number) {
-    if (width >= breakpoints.lg) {
-      return 6;
-    }
-
-    if (width >= breakpoints.md) {
-      return 4;
-    }
-
-    return 1;
+    this.photoColumns = getColumns(width);
   }
 }

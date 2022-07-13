@@ -4,10 +4,9 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
 import { of } from 'rxjs';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/angular';
-
-import { PostsService } from '../posts.service';
+import { PostsModule } from '@modules/posts/posts.module';
+import { PostsService } from '@modules/posts/services';
 import { PostsCommentsComponent } from './posts-comments.component';
-import { PostsModule } from '../posts.module';
 
 const expectedComments = [
   {

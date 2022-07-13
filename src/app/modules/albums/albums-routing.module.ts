@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AlbumsComponent } from './pages/albums.component';
+import { AlbumsComponent } from './pages';
 import { PhotosComponent } from './photos/photos.component';
 
 const routes: Routes = [

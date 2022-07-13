@@ -2,7 +2,8 @@ import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angul
 
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { AuthState } from '../../shared/states/auth/auth.state';
+
+import { AuthState } from '@shared/states/auth/auth.state';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {

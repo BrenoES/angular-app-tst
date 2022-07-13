@@ -1,0 +1,5 @@
+<div class="input">
+  <input class="input__field" [name]="name" [formControl]="control" [type]="type" [id]="id" placeholder=" " />
+  <label class="input__label" [for]="id" *ngIf="label">{{ label }}</label>
+  <app-input-form-validator [control]="control"></app-input-form-validator>
+</div>

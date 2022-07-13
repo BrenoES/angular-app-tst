@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Store } from '@ngxs/store';
 import { Login } from '@shared/states/auth/auth.actions';
@@ -28,6 +28,9 @@ export class LoginComponent {
   login(): void {
     let username = this.usernameControl?.value;
     let password = this.passwordControl?.value;
-    this.store.dispatch(new Login({ username, password }));
+    this.loginForm.markAllAsTouched();
+    if (this.loginForm.valid) {
+      this.store.dispatch(new Login({ username, password }));
+    }
   }
 }

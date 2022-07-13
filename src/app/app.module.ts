@@ -7,7 +7,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
-import { HTTPReqResInterceptor } from '@core/services/http-req-res.interceptor';
+import { HTTPReqResInterceptor } from '@core/interceptors/http-req-res.interceptor';
 import { environment } from '@env';
 import { CoreModule } from '@core/core.module';
 import { AppRoutingModule } from './app-routing.module';

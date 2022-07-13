@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from './posts.service';
-import { Posts } from './posts';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { PostsCommentsComponent } from './posts-comments/posts-comments.component';
+
+import { PostsService } from '@modules/posts/services';
+import { Posts } from '@modules/posts/interfaces';
+import { PostsCommentsComponent } from '@modules/posts/components';
 
 @Component({
   selector: 'app-posts',

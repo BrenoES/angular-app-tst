@@ -1,8 +1,9 @@
-import { UserDetail } from '@core/models/auth.model';
 import { HttpClient } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
+
+import { UserLogin } from '@core/models';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -11,7 +12,7 @@ export class AuthService {
   private token = 'auth.token';
   constructor(private _http: HttpClient) {}
 
-  login(userdetails: UserDetail) {
+  login(userdetails: UserLogin) {
     if (this.isValidLogin(userdetails)) {
       return of({
         token: this.token,
@@ -27,7 +28,7 @@ export class AuthService {
     return of({});
   }
 
-  private isValidLogin({ password, username }: UserDetail) {
+  private isValidLogin({ password, username }: UserLogin) {
     return this.validPassord === password && this.validUsername === username;
   }
 }

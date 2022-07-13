@@ -1,0 +1,50 @@
+.input {
+  position: relative;
+  margin-bottom: 20px;
+
+  &__label {
+    position: absolute;
+    left: 5px;
+    top: 15px;
+    padding: calc(var(--size-bezel) * 0) calc(var(--size-bezel) * 0.5);
+    white-space: nowrap;
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    transition: transform 120ms ease-in;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  &__field {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 1px solid currentColor;
+    padding: calc(var(--size-bezel) * 1) var(--size-bezel);
+    color: currentColor;
+    background: transparent;
+    border-radius: var(--size-radius);
+    margin-bottom: 5px;
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      & + .input__label {
+        transform: translate(0.25rem, -120%) scale(0.7);
+        &::after {
+          z-index: -1;
+          content: '';
+          color: white;
+          border-top: 4px solid;
+          position: absolute;
+          left: 0;
+          top: 6px;
+          padding: 54px;
+        }
+      }
+    }
+    &.ng-touched.ng-invalid {
+      --text-opacity: 1;
+      border-color: rgba(245, 101, 101, var(--text-opacity));
+    }
+  }
+}

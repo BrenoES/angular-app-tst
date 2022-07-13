@@ -1,11 +1,17 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { Store } from '@ngxs/store';
 
 let component: ComponentFixture<AppComponent>;
 
 beforeEach(() => {
-  TestBed.configureTestingModule({ declarations: [AppComponent], schemas: [NO_ERRORS_SCHEMA] });
+  const storeSpy = jest.fn();
+  TestBed.configureTestingModule({
+    declarations: [AppComponent],
+    providers: [{ provide: Store, useValue: storeSpy }],
+    schemas: [NO_ERRORS_SCHEMA],
+  });
 });
 
 it('should create', () => {

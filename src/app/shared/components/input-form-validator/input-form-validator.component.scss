@@ -1,0 +1,6 @@
+.message-error {
+  --text-opacity: 1;
+  color: rgba(245, 101, 101, var(--text-opacity));
+  font-style: italic;
+  font-size: 0.75rem;
+}

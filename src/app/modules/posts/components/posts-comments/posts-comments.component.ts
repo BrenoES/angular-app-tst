@@ -2,8 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 
-import { Comments } from '../posts';
-import { PostsService } from '../posts.service';
+import { Comments } from '@modules/posts/interfaces';
+import { PostsService } from '@modules/posts/services';
 
 interface DialogData {
   postId: number;

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+
 import { Todo } from '@shared/states/todo/todo.actions';
 import { TodoState } from '@shared/states/todo/todo.states';
-import { Observable, of } from 'rxjs';
-import { Todos } from './todos';
-import { TodosService } from './todos.service';
+
+import { Todos } from '@modules/todos/interfaces';
 
 @Component({
   selector: 'app-todos',

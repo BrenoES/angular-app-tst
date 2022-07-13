@@ -1,15 +1,23 @@
-import * as shared from '@shared/index';
-
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AppMaterialModule } from './modules/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-const sharedDeclarations = [...shared.components, ...shared.directives, ...shared.pipes];
-const sharedModule = [AppMaterialModule, CommonModule];
+import { InputFormValidatorComponent } from './components/input-form-validator/input-form-validator.component';
+import { InputFormComponent } from './components/input-form/input-form.component';
+
+const components: any = [InputFormValidatorComponent, InputFormComponent];
+
+const directives: any = [];
+
+const pipes: any = [];
+
+const sharedDeclarations = [...components, ...directives, ...pipes];
+const sharedModule = [AppMaterialModule, CommonModule, ReactiveFormsModule, FormsModule];
 
 @NgModule({
   declarations: [...sharedDeclarations],
-  imports: [...sharedDeclarations, ...sharedModule],
+  imports: [...sharedModule],
   exports: [...sharedDeclarations, ...sharedModule],
 })
 export class SharedModule {}

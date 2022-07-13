@@ -8,12 +8,13 @@ import {
 } from '@angular/common/http';
 
 import { Inject, Injectable } from '@angular/core';
-import { AuthToken } from '@core/models/auth.model';
+
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, filter, finalize, switchMap, take, tap } from 'rxjs/operators';
-import { AuthService } from './auth.service';
-import { BroadcasterService } from './broadcaster.service';
-import { CONSTANTS } from './constants';
+import { catchError, finalize, tap } from 'rxjs/operators';
+
+import { AuthToken } from '@core/models';
+import { AuthService, BroadcasterService } from '@core/services';
+import { CONSTANTS } from '@core/constants';
 
 @Injectable()
 export class HTTPReqResInterceptor implements HttpInterceptor {

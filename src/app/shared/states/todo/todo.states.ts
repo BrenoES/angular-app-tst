@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { Todo } from './todo.actions';
+
 import { tap } from 'rxjs/operators';
-import { Todos } from '@modules/todos/todos';
-import { TodosService } from '@modules/todos/todos.service';
+import { Todo } from '@shared/states/todo/todo.actions';
+import { Todos } from '@modules/todos/interfaces';
+import { TodosService } from '@modules/todos/services';
 
 export interface TodoStateModel {
   todos: Todos;
