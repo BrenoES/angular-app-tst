@@ -5,7 +5,11 @@ import { AuthService } from './auth.service';
 let service: AuthService;
 
 beforeEach(() => {
-  TestBed.configureTestingModule({ providers: [AuthService], imports: [HttpClientTestingModule] });
+  TestBed.configureTestingModule({
+    providers: [AuthService],
+    imports: [HttpClientTestingModule],
+    teardown: { destroyAfterEach: false },
+  });
 });
 
 it('should create', () => {

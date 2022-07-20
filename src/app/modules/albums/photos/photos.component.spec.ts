@@ -18,6 +18,7 @@ describe(PhotosComponent.name, () => {
         imports: [MatDialogModule, HttpClientTestingModule, RouterModule.forRoot([])],
         schemas: [CUSTOM_ELEMENTS_SCHEMA],
         providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+        teardown: { destroyAfterEach: false },
       }).compileComponents();
     })
   );

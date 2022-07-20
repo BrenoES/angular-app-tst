@@ -9,6 +9,7 @@ describe('InputFormValidatorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [InputFormValidatorComponent],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   });
 

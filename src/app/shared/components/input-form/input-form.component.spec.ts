@@ -9,6 +9,7 @@ describe('InputFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [InputFormComponent],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   });
 

@@ -7,6 +7,7 @@ describe(AlbumsService.name, () => {
     TestBed.configureTestingModule({
       providers: [AlbumsService],
       imports: [HttpClientTestingModule],
+      teardown: { destroyAfterEach: false },
     });
   });
 

@@ -11,6 +11,7 @@ beforeEach(() => {
     declarations: [AppComponent],
     providers: [{ provide: Store, useValue: storeSpy }],
     schemas: [NO_ERRORS_SCHEMA],
+    teardown: { destroyAfterEach: false },
   });
 });
 

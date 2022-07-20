@@ -8,6 +8,7 @@ describe(`Service: ${PostsService.name}`, () => {
     TestBed.configureTestingModule({
       providers: [PostsService],
       imports: [HttpClientTestingModule],
+      teardown: { destroyAfterEach: false },
     });
   });
 

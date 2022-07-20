@@ -4,7 +4,10 @@ import { BroadcasterService } from './broadcaster.service';
 let service: BroadcasterService;
 
 beforeEach(() => {
-  TestBed.configureTestingModule({ providers: [BroadcasterService] });
+  TestBed.configureTestingModule({
+    providers: [BroadcasterService],
+    teardown: { destroyAfterEach: false },
+  });
 });
 
 it('should create', () => {

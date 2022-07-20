@@ -10,6 +10,7 @@ beforeEach(() => {
   TestBed.configureTestingModule({
     providers: [AuthGuard, { provide: Store, useValue: storeSpy }],
     imports: [HttpClientTestingModule],
+    teardown: { destroyAfterEach: false },
   });
 });
 

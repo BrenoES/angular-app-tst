@@ -7,6 +7,7 @@ describe('Service: Todos', () => {
     TestBed.configureTestingModule({
       providers: [TodosService],
       imports: [HttpClientTestingModule],
+      teardown: { destroyAfterEach: false },
     });
   });
 

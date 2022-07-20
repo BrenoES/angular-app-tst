@@ -14,6 +14,7 @@ describe('NavigationComponent', () => {
     TestBed.configureTestingModule({
       declarations: [NavigationComponent],
       imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
 
