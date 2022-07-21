@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormControl, AbstractControl } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 import { InputFormValidatorService } from './services/input-form-validator.service';
 
 @Component({
@@ -12,7 +12,6 @@ export class InputFormValidatorComponent {
   control!: AbstractControl;
 
   get messageError() {
-    console.log(this.control);
     const errorsControl = this.control.errors ?? {};
     const [errorMessage] = Object.keys(errorsControl).map((propertyName) => {
       if (this.control.hasError(propertyName) && this.control.touched) {
