@@ -148,9 +148,8 @@
       }
     }
   },
-  "defaultProject": "ng-new-app",
   "cli": {
     "analytics": false,
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }
