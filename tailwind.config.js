@@ -1,8 +1,7 @@
 /* refer for more details https://tailwindcss.com/docs/configuration */
 
 module.exports = {
-  purge: [],
-  darkMode: false,
+  content: ['src/**/*.{html,js}'],
   theme: {
     fontFamily: {
       primary: ['Poppins'],

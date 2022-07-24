@@ -1,8 +1,8 @@
 import { PostsComponent } from './posts.component';
-import { render, screen } from '@testing-library/angular';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/angular';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PostsModule } from './posts.module';
-import { PostsService } from './posts.service';
+import { PostsModule } from '@modules/posts/posts.module';
+import { PostsService } from '@modules/posts/services';
 import { of } from 'rxjs';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -64,15 +64,16 @@ describe(PostsComponent.name, () => {
     await setup();
 
     // Ação
-    const openCommentButtons = await screen.findAllByRole('button', { name: /ver comentários/i });
-    userEvent.click(openCommentButtons[0]);
+    const [openFirstCommentButton] = await screen.findAllByRole('button', { name: /ver comentários/i });
+    userEvent.click(openFirstCommentButton);
     await screen.findByRole('dialog');
-    await screen.findByRole('heading', { name: /Comentários/i });
-    const closeButton = await screen.findByRole('button', { name: /fechar/i });
-    userEvent.click(closeButton);
     const commentsTitle = screen.queryByRole('heading', { name: /Comentários/i });
 
     //Expectativa
+    expect(commentsTitle).toBeInTheDocument();
+    const closeButton = await screen.findByRole('button', { name: /fechar/i });
+    userEvent.click(closeButton);
+    await waitForElementToBeRemoved(() => screen.queryByRole('dialog'));
     expect(commentsTitle).not.toBeInTheDocument();
   });
 });

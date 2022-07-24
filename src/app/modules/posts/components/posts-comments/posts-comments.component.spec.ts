@@ -3,7 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { of } from 'rxjs';
 import userEvent from '@testing-library/user-event';
-import { render, screen } from '@testing-library/angular';
+import { render, screen, waitForElementToBeRemoved, fireEvent } from '@testing-library/angular';
 import { PostsModule } from '@modules/posts/posts.module';
 import { PostsService } from '@modules/posts/services';
 import { PostsCommentsComponent } from './posts-comments.component';
@@ -25,9 +25,11 @@ const expectedComments = [
   },
 ];
 const closeFn = jest.fn();
+
 const MatDialogRefMock: Partial<MatDialogRef<PostsCommentsComponent>> = {
   close: closeFn,
 };
+
 const data = {
   postId: 1,
 };
@@ -44,12 +46,12 @@ async function setup() {
   });
 }
 
-describe(PostsCommentsComponent.name, () => {
+describe('PostsCommentsComponent', () => {
   it('should render all comments when starting component', async () => {
     // Cenário
-    jest.useFakeTimers();
+    // jest.useFakeTimers();
     await setup();
-    jest.advanceTimersByTime(1_00);
+    // jest.advanceTimersByTime(1_00);
     // Ação
     const listItems = screen.getAllByRole('listitem');
     // Expectativa
@@ -65,8 +67,9 @@ describe(PostsCommentsComponent.name, () => {
     // Cenário
     await setup();
     // Ação
-    const closeButton = await screen.getByTestId('closeComments');
-    userEvent.click(closeButton);
+    const closeButton = screen.getByTestId('closeComments');
+    fireEvent.click(closeButton);
+
     // Expectativa
     expect(closeFn).toHaveBeenCalledTimes(1);
   });

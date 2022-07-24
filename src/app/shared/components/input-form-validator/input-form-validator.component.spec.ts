@@ -1,25 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InputFormValidatorComponent } from './input-form-validator.component';
+import { render } from '@testing-library/angular';
+import { InputFormValidatorService } from './services/input-form-validator.service';
+import { FormControl, Validators } from '@angular/forms';
 
+async function setup() {
+  await render(InputFormValidatorComponent, {
+    providers: [InputFormValidatorService],
+    componentProperties: {
+      control: new FormControl('', Validators.required),
+    },
+  });
+}
 describe('InputFormValidatorComponent', () => {
-  let component: InputFormValidatorComponent;
-  let fixture: ComponentFixture<InputFormValidatorComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [InputFormValidatorComponent],
-      teardown: { destroyAfterEach: false },
-    }).compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(InputFormValidatorComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async () => {
+    await setup();
   });
 });

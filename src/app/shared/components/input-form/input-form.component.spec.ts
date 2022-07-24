@@ -1,25 +1,30 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ControlContainer, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
+import { render } from '@testing-library/angular';
 
 import { InputFormComponent } from './input-form.component';
 
+const formControlNameMock = 'answer';
+
+const fg: FormGroup = new FormGroup({
+  [`${formControlNameMock}`]: new FormControl(''),
+});
+
+const fgd: FormGroupDirective = new FormGroupDirective([], []);
+fgd.form = fg;
+
+async function setup() {
+  await render(InputFormComponent, {
+    imports: [SharedModule],
+    providers: [{ provide: ControlContainer, useValue: fgd }],
+    componentProperties: {
+      formControlName: formControlNameMock,
+    },
+  });
+}
+
 describe('InputFormComponent', () => {
-  let component: InputFormComponent;
-  let fixture: ComponentFixture<InputFormComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [InputFormComponent],
-      teardown: { destroyAfterEach: false },
-    }).compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(InputFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async () => {
+    await setup();
   });
 });
