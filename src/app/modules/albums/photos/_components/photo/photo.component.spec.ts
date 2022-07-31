@@ -25,7 +25,6 @@ describe(PhotoComponent.name, () => {
           },
         ],
         schemas: [CUSTOM_ELEMENTS_SCHEMA],
-        teardown: { destroyAfterEach: false },
       }).compileComponents();
     })
   );

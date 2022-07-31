@@ -8,7 +8,6 @@ describe('InputFormValidatorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [InputFormValidatorService],
-      teardown: { destroyAfterEach: false },
     });
     service = TestBed.inject(InputFormValidatorService);
   });

@@ -14,7 +14,6 @@ describe('LoginComponent', () => {
     await TestBed.configureTestingModule({
       providers: [{ provide: Store, useValue: storeSpy }],
       imports: [LoginModule],
-      teardown: { destroyAfterEach: false },
     }).compileComponents();
   });
 

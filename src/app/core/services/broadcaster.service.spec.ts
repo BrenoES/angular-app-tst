@@ -6,7 +6,6 @@ let service: BroadcasterService;
 beforeEach(() => {
   TestBed.configureTestingModule({
     providers: [BroadcasterService],
-    teardown: { destroyAfterEach: false },
   });
 });
 

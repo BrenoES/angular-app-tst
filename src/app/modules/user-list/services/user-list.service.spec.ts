@@ -7,7 +7,6 @@ describe('Service: UserList', () => {
     TestBed.configureTestingModule({
       providers: [UsersService],
       imports: [HttpClientTestingModule],
-      teardown: { destroyAfterEach: false },
     });
   });
 

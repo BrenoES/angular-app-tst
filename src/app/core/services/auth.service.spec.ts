@@ -8,7 +8,6 @@ beforeEach(() => {
   TestBed.configureTestingModule({
     providers: [AuthService],
     imports: [HttpClientTestingModule],
-    teardown: { destroyAfterEach: false },
   });
 });
 
